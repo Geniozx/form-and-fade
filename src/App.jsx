@@ -1,54 +1,21 @@
+import Navbar from "./components/Navbar";
+import StickyBookingCTA from "./components/StickyBookingCTA";
 
-import { business } from "./config/business";
+import Hero from "./sections/Hero";
+import QuickLinks from "./sections/QuickLinks";
 
 function App() {
   return (
-    <main className="container" style={{ paddingBlock: "4rem" }}>
-      <p
-        style={{
-          fontSize: "var(--font-size-xs)",
-          letterSpacing: "0.15em",
-          textTransform: "uppercase",
-          color: "var(--color-text-muted)",
-        }}
-      >
-        {business.category}
-      </p>
+    <>
+      <Navbar />
 
-      <h1
-        style={{
-          fontSize: "var(--font-size-3xl)",
-          marginTop: "1rem",
-        }}
-      >
-        {business.name}.
-      </h1>
+      <main>
+        <Hero />
+        <QuickLinks />
+      </main>
 
-      <p
-        style={{
-          fontSize: "var(--font-size-xl)",
-          marginTop: "1rem",
-        }}
-      >
-        {business.tagline}
-      </p>
-
-      <p style={{ marginTop: "0.5rem" }}>
-        {business.description}
-      </p>
-
-      {business.demo && (
-        <p
-          style={{
-            marginTop: "2rem",
-            color: "var(--color-text-muted)",
-            fontSize: "var(--font-size-sm)",
-          }}
-        >
-          Portfolio demonstration — fictional business.
-        </p>
-      )}
-    </main>
+      <StickyBookingCTA />
+    </>
   );
 }
 
