@@ -1,0 +1,114 @@
+.about {
+  padding: clamp(5rem, 9vw, 9rem) 0;
+  background: #f7f7f5;
+  color: #111111;
+}
+
+.about__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(3rem, 7vw, 7rem);
+}
+
+.about__eyebrow {
+  color: #777777;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.about__title {
+  margin-top: 1.5rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.07em;
+  line-height: 0.98;
+}
+
+.about__title span {
+  color: #777777;
+}
+
+.about__lead {
+  margin-top: 2rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 500;
+}
+
+.about__description {
+  margin-top: 1.25rem;
+  max-width: 500px;
+  color: #666666;
+  font-size: 0.95rem;
+  line-height: 1.85;
+}
+
+.about__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #111111;
+  color: #111111;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.about__link:hover {
+  opacity: 0.65;
+}
+
+.about__visual {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 500px;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background:
+    radial-gradient(circle at 50% 45%, #343434, #111111 70%);
+  color: #ffffff;
+}
+
+.about__visual-top,
+.about__visual-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #bdbdbd;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+}
+
+.about__visual-center {
+  text-align: center;
+}
+
+.about__visual-center > span {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(5rem, 12vw, 9rem);
+  font-weight: 700;
+  letter-spacing: -0.09em;
+  line-height: 1;
+}
+
+.about__visual-center p {
+  margin-top: 1rem;
+  color: #d9d9d6;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+}
+
+@media (max-width: 768px) {
+  .about__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .about__visual {
+    min-height: 380px;
+  }
+}

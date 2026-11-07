@@ -42,7 +42,26 @@ export const business = {
         },
     ],
 
-    gallery: [],
+    
+    gallery: [
+        {
+            src: "/images/precision-cut.jpeg",
+            alt: "Barber carefully cutting hair with professional scissors",
+        },
+        {
+            src: "/images/skin-fade.jpeg",
+            alt: "Side profile of a finished skin fade haircut",
+        },
+        {
+            src: "/images/beard-detail.jpeg",
+            alt: "Detailed beard grooming with professional barber tools",
+        },
+        {
+            src: "/images/studio.jpeg",
+            alt: "Modern minimalist barber studio interior",
+        },
+    ],
+
 
     about: {
         heading: "The Art of the Cut",

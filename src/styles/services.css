@@ -1,0 +1,147 @@
+.services {
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  background: #f7f7f5;
+  color: #111111;
+}
+
+.services__header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.services__eyebrow {
+  color: #777777;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.services__title {
+  margin-top: 1rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 1.05;
+}
+
+.services__title span {
+  color: #777777;
+}
+
+.services__intro {
+  max-width: 260px;
+  color: #777777;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.services__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 270px;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  background: #ffffff;
+  border: 1px solid #e5e5e2;
+  transition:
+    border-color 200ms ease,
+    transform 200ms ease;
+}
+
+.services__card:hover {
+  border-color: #111111;
+  transform: translateY(-3px);
+}
+
+.services__card-top,
+.services__card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.services__number,
+.services__duration {
+  color: #777777;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.services__card-body {
+  padding: 2rem 0;
+}
+
+.services__card-body h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.services__card-body p {
+  margin-top: 0.75rem;
+  max-width: 360px;
+  color: #777777;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.services__card-bottom {
+  padding-top: 1.25rem;
+  border-top: 1px solid #e5e5e2;
+}
+
+.services__price {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.services__decorative-arrow {
+  color: #777777;
+  font-size: 1.5rem;
+}
+
+.services__empty,
+.services__disclaimer {
+  margin-top: 1.5rem;
+  color: #777777;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .services__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .services__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services__card {
+    min-height: 230px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services__card {
+    transition: none;
+  }
+
+  .services__card:hover {
+    transform: none;
+  }
+}
