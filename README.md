@@ -147,10 +147,10 @@ npm run build
 
 ### Phase 4 — Interactions and Polish
 
-- [ ] Accessible gallery lightbox
-- [ ] Responsive refinements
-- [ ] Accessibility testing
-- [ ] Performance optimization
+- [x] Accessible gallery lightbox
+- [x] Responsive refinements
+- [x] Accessibility testing
+- [x] Performance optimization
 
 ### Phase 5 — Deployment
 
@@ -355,3 +355,39 @@ nothing to commit, working tree clean
 </box>
 
 **Next action:** Complete the Phase 3 verification and push. Once you share the terminal results, we'll immediately begin **Phase 4A — Visual Refinement**, without revisiting completed work.
+
+
+
+
+
+
+## Phase 4 — Visual Refinement & Accessibility ✅
+
+### Phase 4A — Visual Refinement
+
+- Expanded the design token system for consistent spacing, typography, borders, and interactions.
+- Refined fluid typography and section layouts.
+- Improved interactive hover and keyboard-focus styling.
+- Polished gallery photography presentation and transitions.
+- Preserved the approved Hybrid Editorial design direction.
+
+### Phase 4B — Accessibility Refinement
+
+- Improved mobile navigation accessibility and keyboard focus management.
+- Added a floating mobile edge handle for reopening navigation after scrolling.
+- Implemented accessible drawer focus trapping, Escape handling, backdrop dismissal, and focus restoration.
+- Improved gallery lightbox keyboard navigation, focus trapping, and screen-reader announcements.
+- Audited page landmarks, heading hierarchy, section semantics, and interactive elements.
+- Verified responsive visual behavior and keyboard interactions.
+- Preserved the fictional demonstration booking restrictions.
+
+### Verification
+
+- ESLint: Passed.
+- Visual checks: Passed.
+- Keyboard interaction checks: Passed where tested.
+- Production build: Pending final verification.
+
+### Status
+
+Phase 4 implementation complete.

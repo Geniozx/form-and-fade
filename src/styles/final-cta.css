@@ -34,9 +34,9 @@
 .final-cta__description {
   max-width: 450px;
   margin-top: 2rem;
-  color: #d9d9d6;
-  font-size: 1rem;
-  line-height: 1.8;
+  color: var(--color-stone);
+  font-size: var(--font-size-body-large);
+  line-height: var(--line-height-body);
 }
 
 .final-cta__button {
@@ -45,7 +45,7 @@
   justify-content: space-between;
   gap: 2rem;
   min-width: 260px;
-  min-height: 56px;
+  min-height: max(56px, var(--button-min-height));
   margin-top: 2.5rem;
   padding: 0 1.5rem;
   background: #f7f7f5;
@@ -55,7 +55,9 @@
   letter-spacing: 0.05em;
   text-decoration: none;
   text-transform: uppercase;
-  transition: background 200ms ease;
+  transition:
+    background-color var(--transition-base),
+    transform var(--transition-base);
 }
 
 a.final-cta__button:hover {
@@ -72,6 +74,11 @@ a.final-cta__button:hover {
   margin-top: 1.5rem;
   color: #999999;
   font-size: 0.75rem;
+}
+
+.final-cta__button--disabled {
+  pointer-events: none;
+  user-select: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

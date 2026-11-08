@@ -20,7 +20,7 @@ function StickyBookingCTA() {
             ) : (
                 <div
                     className="sticky-booking__button sticky-booking__button--disabled"
-                    aria-label="Booking unavailable in this portfolio demonstration"
+                    title="Appointments are unavailable in this portfolio demonstration"
                 >
                     <span>Booking Demo Only</span>
                     <span aria-hidden="true">—</span>

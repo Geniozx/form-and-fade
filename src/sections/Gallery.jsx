@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { business } from "../config/business";
 import "../styles/gallery.css";
 
@@ -7,6 +7,7 @@ function Gallery() {
     const [activeIndex, setActiveIndex] = useState(null);
     const closeButtonRef = useRef(null);
     const previousFocusRef = useRef(null);
+    const lightboxRef = useRef(null);
 
     const isOpen = activeIndex !== null;
     const activeImage = isOpen ? images[activeIndex] : null;
@@ -23,23 +24,26 @@ function Gallery() {
         });
     }
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (!isOpen) return;
 
         const previousOverflow = document.body.style.overflow;
-            document.body.style.overflow = "hidden";
+        document.body.style.overflow = "hidden";
 
+        // Focus the close button as soon as the dialog opens.
         closeButtonRef.current?.focus();
 
         function handleKeyDown(event) {
             if (event.key === "Escape") {
                 event.preventDefault();
                 closeLightbox();
+                return;
             }
 
             if (event.key === "ArrowRight") {
                 event.preventDefault();
                 setActiveIndex((index) => (index + 1) % images.length);
+                return;
             }
 
             if (event.key === "ArrowLeft") {
@@ -47,38 +51,49 @@ function Gallery() {
                 setActiveIndex(
                     (index) => (index - 1 + images.length) % images.length
                 );
+                return;
             }
 
-            if (event.key === "Tab") {
-                const dialog = closeButtonRef.current?.closest(
-                    ".gallery__lightbox"
-                );
+            if (event.key === "Tab") return;
+            
+            const dialog = lightboxRef.current;
+            if (!dialog) return;
 
-                if (!dialog) return;
+            const focusable = Array.from(
+                dialog.querySelectorAll(
+                    'button:not([disabled]), a[href], [tabindex="0"]'
+                )
+            ).filter((element) => element.getClientRects().length > 0);
 
-                const focusable = Array.from(
-                    dialog.querySelectorAll(
-                        'button:not([disabled]), a[href], [tabindex="0"]'
-                    )
-                );
+            if (!focusable.length) {
+                event.preventDefault();
+                dialog.focus();
+                return;
+            }
 
-                if (!focusable.length) return;
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            const active = document.activeElement;
 
-                const first = focusable[0];
-                const last = focusable[focusable.length - 1];
+            // Recover focus if it somehow moves outside the dialog.
+            if (!dialog.contains(active)) {
+                event.preventDefault();
+                (event.shiftKey ? last : first).focus();
+                return;
+            }
 
-                if (event.shiftKey && document.activeElement === first) {
-                    event.preventDefault();
-                    last.focus();
-                } else if (
-                    !event.shiftKey &&
-                    document.activeElement === last
-                ) {
-                    event.preventDefault();
-                    first.focus();
-                }
+            if (event.shiftKey && active === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (
+                !event.shiftKey &&
+                active === last
+            ) {
+                event.preventDefault();
+                first.focus();
             }
         }
+    
 
         document.addEventListener("keydown", handleKeyDown);
 
@@ -145,10 +160,12 @@ function Gallery() {
 
             {activeImage && (
                 <div
+                    ref={lightboxRef}
                     className="gallery__lightbox"
                     role="dialog"
                     aria-modal="true"
-                    aria-label={`Gallery image ${activeIndex + 1} of ${images.length}`}
+                    aria-label="Image gallery viewer"
+                    tabIndex={-1}
                 >
                     <button
                         ref={closeButtonRef}
@@ -163,8 +180,12 @@ function Gallery() {
                     <div className="gallery__lightbox-content">
                         <img src={activeImage.src} alt={activeImage.alt} />
 
-                        <p className="gallery__lightbox-caption">
-                            {activeImage.alt}
+                        <p 
+                            className="gallery__lightbox-caption"
+                            aria-live="polite"
+                            aria-atomic="true"
+                        >
+                            {`Image ${activeIndex + 1} of ${images.length}: ${activeImage.alt}`}
                         </p>
 
                         <div className="gallery__lightbox-controls">

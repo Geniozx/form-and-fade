@@ -1,0 +1,55 @@
+
+/* Global keyboard focus */
+:where(a, button, input, select, textarea):focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* Focus indicators on dark surfaces */
+:where(.hero, .final-cta, .footer, .gallery__lightbox)
+  :where(a, button):focus-visible {
+  outline-color: var(--color-white);
+}
+
+/* Respect touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .final-cta__button:not(.final-cta__button--disabled) {
+    transition:
+      transform var(--transition-base),
+      background-color var(--transition-base);
+  }
+
+  a.final-cta__button:hover {
+    transform: translateY(var(--interactive-lift));
+  }
+
+  .about__link {
+    transition:
+      opacity var(--transition-fast),
+      gap var(--transition-base);
+  }
+
+  .about__link:hover {
+    gap: 2rem;
+  }
+
+  .footer__column a,
+  .footer__logo {
+    transition: opacity var(--transition-fast);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  .final-cta__button,
+  .about__link,
+  .footer__column a,
+  .footer__logo {
+    transition: none;
+    transform: none;
+  }
+}
