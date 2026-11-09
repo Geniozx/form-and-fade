@@ -1,4 +1,3 @@
-
 # FORM & FADE
 
 ### Premium Digital Business Hub
@@ -8,6 +7,10 @@ FORM & FADE is a fictional barber studio created to demonstrate a reusable, mobi
 The application combines professional branding, service information, portfolio photography, and external booking links into one streamlined website.
 
 > Portfolio demonstration only. FORM & FADE is not a real operating barbershop.
+
+**Live Demo:** https://form-and-fade-seven.vercel.app/
+
+**Source Code:** https://github.com/Geniozx/form-and-fade
 
 ## Project Goals
 
@@ -26,6 +29,7 @@ The application combines professional branding, service information, portfolio p
 - Custom CSS
 - ESLint
 - Git / GitHub
+- Vercel (hosting and continuous deployment)
 
 No backend or database is required for Version 1.0.
 
@@ -38,7 +42,7 @@ FORM & FADE uses a Hybrid Editorial design direction.
 - Onyx: `#111111`
 - Off-white: `#F7F7F5`
 - Stone: `#D9D9D6`
-- Graphite: `#777777`
+- Graphite: `#595959`
 
 ### Typography
 
@@ -54,7 +58,7 @@ FORM & FADE uses a Hybrid Editorial design direction.
 - Strong booking calls to action
 - Responsive mobile-first layouts
 
-## Version 1.0 — Planned Features
+## Version 1.0 — Completed Features
 
 1. Hero and brand introduction
 2. Quick navigation links
@@ -67,7 +71,8 @@ FORM & FADE uses a Hybrid Editorial design direction.
 9. Configurable external booking URL
 10. Responsive design and accessibility support
 
-Booking functionality is handled by an external provider.
+The application supports configurable links to an external booking provider.
+Booking is intentionally disabled in this fictional portfolio demonstration.
 
 The portfolio demonstration does not accept real appointments.
 
@@ -76,7 +81,10 @@ The portfolio demonstration does not accept real appointments.
 ```text
 form-and-fade/
 ├── public/
-│   └── images/
+│   ├── images/
+│   ├── favicon.svg
+│   ├── og-image.png
+│   └── robots.txt
 ├── src/
 │   ├── components/
 │   ├── config/
@@ -88,6 +96,7 @@ form-and-fade/
 │   ├── App.jsx
 │   └── main.jsx
 ├── index.html
+├── package.json
 └── README.md
 ```
 
@@ -152,12 +161,13 @@ npm run build
 - [x] Accessibility testing
 - [x] Performance optimization
 
-### Phase 5 — Deployment
+### Phase 5 — Production Readiness & Deployment
 
-- [ ] Production testing
-- [ ] SEO and metadata review
-- [ ] Static deployment
-- [ ] Portfolio documentation
+- [x] Production testing
+- [x] SEO and metadata review
+- [x] Static deployment to Vercel
+- [x] Mobile navigation accessibility correction
+- [x] Portfolio documentation
 
 ## Development Workflow
 
@@ -305,59 +315,6 @@ Additional components:
 ### Next Phase
 
 Phase 4 — Visual Polish, Accessibility, SEO & Performance
-```
-
-Only mark the Phase 3E checks as verified once you've completed them.
-
-## Step 4 — Review and stage changes
-
-Run:
-
-```bash
-git status
-git add .
-git status
-```
-
-Ensure no `.env`, `node_modules`, or `dist` files are staged.
-
-## Step 5 — Commit and push
-
-Once the verification is successful:
-
-```bash
-git commit -m "Complete Phase 3 business content and gallery"
-git push
-git status
-```
-
-Your final output should include:
-
-```text
-On branch main
-Your branch is up to date with 'origin/main'.
-
-nothing to commit, working tree clean
-```
-
-## Next — Phase 4
-
-<box border radius="lg" padding={3} gap={2}>
-  **Visual Polish, Accessibility, SEO & Performance**
-
-  <list marker="number" gap={2}>
-    <list-item>**4A — Visual Refinement:** typography, spacing, photography, hover effects, and editorial consistency</list-item>
-    <list-item>**4B — Accessibility:** mobile menu keyboard behavior, lightbox focus management, contrast, and semantic structure</list-item>
-    <list-item>**4C — SEO & Metadata:** page title, descriptions, social previews, and structured data</list-item>
-    <list-item>**4D — Performance:** image optimization, lazy loading, mobile performance, and responsive testing</list-item>
-    <list-item>**4E — Final QA & GitHub:** documentation, production verification, commit, and push</list-item>
-  </list>
-</box>
-
-**Next action:** Complete the Phase 3 verification and push. Once you share the terminal results, we'll immediately begin **Phase 4A — Visual Refinement**, without revisiting completed work.
-
-
-
 
 
 
@@ -386,8 +343,95 @@ nothing to commit, working tree clean
 - ESLint: Passed.
 - Visual checks: Passed.
 - Keyboard interaction checks: Passed where tested.
-- Production build: Pending final verification.
+- Production build: Passed.
 
 ### Status
 
 Phase 4 implementation complete.
+
+
+
+## Phase 5 — Production Readiness & Deployment ✅
+
+**Status:** Complete
+
+### 5A — SEO & Metadata
+
+- Updated the document title and meta description.
+- Added Open Graph and Twitter/X sharing metadata.
+- Created a custom SVG favicon.
+- Added a 1200 × 630 social-sharing image.
+- Configured canonical and social-sharing URLs for the production domain.
+- Added `robots.txt`.
+- Preserved `noindex, follow` because FORM & FADE is a fictional portfolio demonstration.
+
+### 5B — Performance Optimization
+
+- Optimized gallery photography for web delivery.
+- Improved Google Fonts loading with preconnect links.
+- Verified production asset generation using Vite.
+- Reduced unnecessary assets by removing an unused SVG sprite.
+
+### 5C — Functional QA & Accessibility
+
+- Completed desktop and mobile functional testing.
+- Verified responsive navigation and floating mobile edge handle.
+- Verified gallery lightbox interactions and keyboard support.
+- Corrected mobile drawer backdrop stacking.
+- Improved text contrast across the interface.
+- Corrected the floating navigation handle's focus and accessibility attributes.
+- Confirmed the mobile navigation accessibility console warning was resolved on the deployed website.
+- Preserved disabled booking functionality for the fictional business.
+
+### Lighthouse Mobile Results
+
+| Category | Score |
+|---|---:|
+| Performance | 98 / 100 |
+| Accessibility | 100 / 100 |
+| Best Practices | 100 / 100 |
+| SEO | 66 / 100 |
+
+The SEO score reflects the intentional `noindex` directive. FORM & FADE is not intended to appear as an operating barbershop in search results.
+
+Lighthouse scores are snapshots and may vary between test runs. Automated accessibility testing does not replace comprehensive manual accessibility testing.
+
+### 5D — Production Deployment
+
+**Hosting:** Vercel
+**Repository:** https://github.com/Geniozx/form-and-fade
+**Live Website:** https://form-and-fade-seven.vercel.app/
+
+- Connected the GitHub repository to Vercel.
+- Configured Vite production builds.
+- Deployed the application to a public HTTPS URL.
+- Verified mobile navigation on the live deployment.
+- Configured production canonical and social-sharing URLs.
+- Established automatic deployment from the `main` branch.
+
+### Version 1.0 — Release Scope
+
+FORM & FADE is a mobile-first, single-page digital business hub demonstrating:
+
+- Premium Hybrid Editorial branding.
+- Responsive desktop and mobile navigation.
+- Floating mobile navigation handle.
+- Cinematic hero and editorial content sections.
+- Services and illustrative pricing.
+- Responsive photography gallery with accessible lightbox.
+- About section and contact information.
+- Configurable external booking links.
+- Sticky mobile booking CTA.
+- Centralized business configuration for reuse in future client projects.
+
+**Demo limitations:**
+
+- FORM & FADE is a fictional business.
+- Booking is intentionally disabled.
+- No real appointments or payments are accepted.
+- No backend or database is required for Version 1.0.
+- Services, prices, and branding are illustrative.
+
+### Final Release
+
+Version 1.0 is deployed as a portfolio demonstration and provides a reusable foundation for future independent service-business websites.
