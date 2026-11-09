@@ -1,11 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
-
 :root {
   /* Brand colors */
   --color-onyx: #111111;
   --color-off-white: #f7f7f5;
   --color-stone: #d9d9d6;
-  --color-graphite: #777777;
+  --color-graphite: #595959;
   --color-white: #ffffff;
 
   /* Semantic colors */

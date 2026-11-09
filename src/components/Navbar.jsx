@@ -24,6 +24,7 @@ function Navbar() {
     const closeRef = useRef(null);
     const lastTriggerRef = useRef(null);
     const wasOpenRef = useRef(false);
+    const navigatingRef = useRef(false);
 
     const drawerActive = isMobile && menuOpen;
 
@@ -37,6 +38,40 @@ function Navbar() {
 
     function closeMenu() {
         setMenuOpen(false);
+    }
+
+    function handleNavigation(event) {
+        if (!drawerActive) {
+            closeMenu();
+            return;
+        }
+
+        const targetId = event.currentTarget.hash.slice(1);
+        const target = document.getElementById(targetId);
+
+        if (!target) return;
+
+        event.preventDefault();
+
+        // Navigation should not restore focus to the menu trigger.
+        navigatingRef.current = true;
+
+        closeMenu();
+
+        window.history.pushState(null, "", `#${targetId}`);
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                target.scrollIntoView({
+                    behavior: window.matchMedia(
+                        "(prefers-reduced-motion: reduce)"
+                    ).matches
+                        ? "auto"
+                        : "smooth",
+                    block: "start",
+                });
+            });
+        });
     }
 
     // Detect mobile/desktop breakpoint changes.
@@ -81,12 +116,16 @@ function Navbar() {
             if (wasOpenRef.current) {
                 wasOpenRef.current = false;
 
-                const trigger = lastTriggerRef.current?.current;
-
-                if (trigger?.isConnected && !trigger.inert) {
-                    trigger.focus();
+                if (navigatingRef.current) {
+                    navigatingRef.current = false;
                 } else {
-                    toggleRef.current?.focus();
+                    const trigger = lastTriggerRef.current?.current;
+
+                    if (trigger?.isConnected && !trigger.inert) {
+                        trigger.focus({ preventScroll: true });
+                    } else {
+                        toggleRef.current?.focus({ preventScroll: true });
+                    }
                 }
             }
 
@@ -221,7 +260,7 @@ function Navbar() {
                                 key={link.href}
                                 href={link.href}
                                 className="navbar__link"
-                                onClick={closeMenu}
+                                onClick={handleNavigation}
                             >
                                 {link.label}
                             </a>

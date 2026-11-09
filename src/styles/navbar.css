@@ -1,4 +1,3 @@
-
 .site-header {
   position: relative;
   z-index: var(--z-header);
@@ -103,7 +102,7 @@
   .navbar__backdrop {
     position: fixed;
     inset: 0;
-    z-index: var(--z-header);
+    z-index: calc(var(--z-header) - 1);
     background: rgba(0, 0, 0, 0.38);
   }
 

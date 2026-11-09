@@ -13,7 +13,7 @@
 }
 
 .services__eyebrow {
-  color: #777777;
+  color: #595959;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -29,12 +29,12 @@
 }
 
 .services__title span {
-  color: #777777;
+  color: #595959;
 }
 
 .services__intro {
   max-width: 260px;
-  color: #777777;
+  color: #595959;
   font-size: 0.875rem;
   line-height: 1.7;
 }
@@ -73,7 +73,7 @@
 
 .services__number,
 .services__duration {
-  color: #777777;
+  color: #595959;
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -93,7 +93,7 @@
 .services__card-body p {
   margin-top: 0.75rem;
   max-width: 360px;
-  color: #777777;
+  color: #595959;
   font-size: 0.875rem;
   line-height: 1.6;
 }
@@ -110,14 +110,14 @@
 }
 
 .services__decorative-arrow {
-  color: #777777;
+  color: #595959;
   font-size: 1.5rem;
 }
 
 .services__empty,
 .services__disclaimer {
   margin-top: 1.5rem;
-  color: #777777;
+  color: #595959;
   font-size: 0.75rem;
 }
 
