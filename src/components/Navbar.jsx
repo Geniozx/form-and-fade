@@ -33,6 +33,12 @@ function Navbar() {
 
     function openMenu(triggerRef) {
         lastTriggerRef.current = triggerRef;
+
+        // Release focus before React hides or makes the trigger inert.
+        if (document.activeElement === triggerRef.current) {
+            triggerRef.current.blur();
+        }
+
         setMenuOpen(true);
     }
 
@@ -307,7 +313,6 @@ function Navbar() {
                     aria-label="Open navigation menu"
                     aria-controls="primary-navigation"
                     aria-expanded={drawerActive}
-                    aria-hidden={drawerActive}
                     inert={drawerActive}
                     onClick={() => openMenu(edgeHandleRef)}
                 >
